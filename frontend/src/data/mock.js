@@ -61,28 +61,28 @@ export const mockData = {
       id: 1,
       title: "Internet para toda la familia",
       description: "Conectividad rápida y confiable para que toda tu familia disfrute juntos. Streaming, videollamadas y navegación sin interrupciones.",
-      image: "https://images.unsplash.com/photo-1758612897487-41d0c44c4420?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGZhbWlseSUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzYwNDAzMTI2fDA&ixlib=rb-4.1.0&q=85",
+      image: "https://images.unsplash.com/photo-1677028096641-95e983394711?w=1200&q=80",
       icon: "Users"
     },
     {
       id: 2,
       title: "Internet para Gamers",
       description: "Baja latencia y alta velocidad para gaming profesional. Experimenta tus juegos favoritos sin lag ni interrupciones.",
-      image: "https://images.pexels.com/photos/7858743/pexels-photo-7858743.jpeg",
+      image: "https://images.unsplash.com/photo-1643509242569-911eebc68fc7?w=1200&q=80",
       icon: "Gamepad2"
     },
     {
       id: 3,
       title: "Internet para Streamers",
       description: "Velocidad de subida superior para transmitir en vivo sin problemas. Crea contenido profesional sin preocupaciones.",
-      image: "https://images.pexels.com/photos/7676486/pexels-photo-7676486.jpeg",
+      image: "https://images.unsplash.com/photo-1559571170-405c5c9dd0e8?w=1200&q=80",
       icon: "Video"
     },
     {
       id: 4,
       title: "Internet para Homework",
       description: "Conexión estable para clases online y tareas. Educación sin interrupciones para el éxito de tus hijos.",
-      image: "https://images.unsplash.com/photo-1758612898304-1a6bb546ac44?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxzdHVkZW50JTIwb25saW5lJTIwaG9tZXdvcmt8ZW58MHx8fHwxNzYwNDAzMTQyfDA&ixlib=rb-4.1.0&q=85",
+      image: "https://images.unsplash.com/photo-1758874572744-26aa02a8f5c0?w=1200&q=80",
       icon: "BookOpen"
     }
   ],
