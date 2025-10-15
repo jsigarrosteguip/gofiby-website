@@ -43,7 +43,7 @@ const IPTV = () => {
               {/* Left side - Image */}
               <div className="relative h-64 md:h-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?w=1200&q=80"
+                  src="https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/2lmlorto_Gemini_Generated_Image_8ehray8ehray8ehr.png"
                   alt="IPTV Service"
                   className="w-full h-full object-cover"
                 />
