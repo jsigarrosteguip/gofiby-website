@@ -61,28 +61,28 @@ export const mockData = {
       id: 1,
       title: "Internet para toda la familia",
       description: "Conectividad rápida y confiable para que toda tu familia disfrute juntos. Streaming, videollamadas y navegación sin interrupciones.",
-      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/913bw2ek_Gemini_Generated_Image_7my2107my2107my2.png",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/q94j4a4r_Gemini_Generated_Image_2zu5uu2zu5uu2zu5.png",
       icon: "Users"
     },
     {
       id: 2,
       title: "Internet para Gamers",
       description: "Baja latencia y alta velocidad para gaming profesional. Experimenta tus juegos favoritos sin lag ni interrupciones.",
-      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/nwe615zq_Gemini_Generated_Image_gw62ysgw62ysgw62.png",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/913bw2ek_Gemini_Generated_Image_7my2107my2107my2.png",
       icon: "Gamepad2"
     },
     {
       id: 3,
       title: "Internet para Streamers",
       description: "Velocidad de subida superior para transmitir en vivo sin problemas. Crea contenido profesional sin preocupaciones.",
-      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/q94j4a4r_Gemini_Generated_Image_2zu5uu2zu5uu2zu5.png",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/tqczwb7b_Gemini_Generated_Image_s26smys26smys26s.png",
       icon: "Video"
     },
     {
       id: 4,
       title: "Internet para Homework",
       description: "Conexión estable para clases online y reuniones profesionales. Trabajo remoto y educación sin interrupciones.",
-      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/tqczwb7b_Gemini_Generated_Image_s26smys26smys26s.png",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/nwe615zq_Gemini_Generated_Image_gw62ysgw62ysgw62.png",
       icon: "BookOpen"
     }
   ],
