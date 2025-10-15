@@ -81,7 +81,7 @@ export const mockData = {
     {
       id: 4,
       title: "Internet para Homework",
-      description: "Conexión estable para clases online y tareas. Educación sin interrupciones para el éxito de tus hijos.",
+      description: "Conexión estable para clases online y reuniones profesionales. Trabajo remoto y educación sin interrupciones.",
       image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/tqczwb7b_Gemini_Generated_Image_s26smys26smys26s.png",
       icon: "BookOpen"
     }
