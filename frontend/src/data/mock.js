@@ -61,28 +61,28 @@ export const mockData = {
       id: 1,
       title: "Internet para toda la familia",
       description: "Conectividad rápida y confiable para que toda tu familia disfrute juntos. Streaming, videollamadas y navegación sin interrupciones.",
-      image: "https://images.unsplash.com/photo-1677028096641-95e983394711?w=1200&q=80",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/913bw2ek_Gemini_Generated_Image_7my2107my2107my2.png",
       icon: "Users"
     },
     {
       id: 2,
       title: "Internet para Gamers",
       description: "Baja latencia y alta velocidad para gaming profesional. Experimenta tus juegos favoritos sin lag ni interrupciones.",
-      image: "https://images.unsplash.com/photo-1643509242569-911eebc68fc7?w=1200&q=80",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/nwe615zq_Gemini_Generated_Image_gw62ysgw62ysgw62.png",
       icon: "Gamepad2"
     },
     {
       id: 3,
       title: "Internet para Streamers",
       description: "Velocidad de subida superior para transmitir en vivo sin problemas. Crea contenido profesional sin preocupaciones.",
-      image: "https://images.unsplash.com/photo-1559571170-405c5c9dd0e8?w=1200&q=80",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/q94j4a4r_Gemini_Generated_Image_2zu5uu2zu5uu2zu5.png",
       icon: "Video"
     },
     {
       id: 4,
       title: "Internet para Homework",
       description: "Conexión estable para clases online y tareas. Educación sin interrupciones para el éxito de tus hijos.",
-      image: "https://images.unsplash.com/photo-1758874572744-26aa02a8f5c0?w=1200&q=80",
+      image: "https://customer-assets.emergentagent.com/job_smart-fiber-peru/artifacts/tqczwb7b_Gemini_Generated_Image_s26smys26smys26s.png",
       icon: "BookOpen"
     }
   ],
