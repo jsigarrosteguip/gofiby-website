@@ -9,9 +9,12 @@ from typing import Optional
 import uuid
 
 # Import services
-from services.supabase_service import supabase_service
+from services.supabase_service import get_supabase_service
 from services.email_service import email_service
 from services.chatbot_service import chatbot_service
+
+# Initialize services
+supabase_service = get_supabase_service()
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
