@@ -90,7 +90,7 @@ const Plans = () => {
             <span className="text-[#fd2d4f] text-sm font-semibold">PLANES Y PRECIOS</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Elige el Plan
+            Elige el Paquete
             <span className="bg-gradient-to-r from-[#fdab2b] via-[#fd2d4f] to-[#f80d76] bg-clip-text text-transparent"> Perfecto</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
