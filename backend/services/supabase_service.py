@@ -7,18 +7,25 @@ import logging
 logger = logging.getLogger(__name__)
 
 class SupabaseService:
+    _instance = None
+    
     def __init__(self):
         supabase_url = os.environ.get('SUPABASE_URL')
         supabase_key = os.environ.get('SUPABASE_KEY')
         
         if not supabase_url or not supabase_key:
-            raise ValueError("Supabase credentials not found in environment variables")
+            logger.warning("Supabase credentials not found in environment variables")
+            self.client = None
+            return
         
         self.client: Client = create_client(supabase_url, supabase_key)
         logger.info("Supabase client initialized successfully")
     
     async def create_contact_lead(self, data: Dict) -> Dict:
         """Crea un nuevo lead de contacto"""
+        if not self.client:
+            raise ValueError("Supabase not configured")
+            
         try:
             lead_data = {
                 'name': data.get('name'),
@@ -38,6 +45,9 @@ class SupabaseService:
     
     async def get_all_leads(self, limit: int = 100) -> List[Dict]:
         """Obtiene todos los leads"""
+        if not self.client:
+            raise ValueError("Supabase not configured")
+            
         try:
             response = self.client.table('contact_leads').select('*').order('created_at', desc=True).limit(limit).execute()
             return response.data
@@ -47,6 +57,9 @@ class SupabaseService:
     
     async def create_chat_session(self, data: Dict) -> Dict:
         """Crea una nueva sesión de chat"""
+        if not self.client:
+            raise ValueError("Supabase not configured")
+            
         try:
             session_data = {
                 'session_id': data.get('session_id'),
@@ -64,6 +77,9 @@ class SupabaseService:
     
     async def get_chat_history(self, session_id: str) -> List[Dict]:
         """Obtiene historial de chat por sesión"""
+        if not self.client:
+            raise ValueError("Supabase not configured")
+            
         try:
             response = self.client.table('chat_sessions').select('*').eq('session_id', session_id).order('created_at', desc=False).execute()
             return response.data
@@ -71,4 +87,6 @@ class SupabaseService:
             logger.error(f"Error fetching chat history: {str(e)}")
             raise
 
-supabase_service = SupabaseService()
+def get_supabase_service():
+    """Dependency injection para FastAPI"""
+    return SupabaseService()
