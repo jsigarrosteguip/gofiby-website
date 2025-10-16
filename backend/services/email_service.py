@@ -9,7 +9,8 @@ class EmailService:
     def __init__(self):
         self.api_key = os.environ.get('RESEND_API_KEY')
         if not self.api_key:
-            raise ValueError("Resend API key not found")
+            logger.warning("Resend API key not found")
+            return
         
         resend.api_key = self.api_key
         logger.info("Email service initialized with Resend")
