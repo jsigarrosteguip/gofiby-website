@@ -122,7 +122,7 @@ async def chat(message: ChatMessage):
         if message.session_id:
             try:
                 chat_history = await supabase_service.get_chat_history(message.session_id)
-            except:
+            except Exception:
                 pass
         
         # Obtener respuesta del bot
