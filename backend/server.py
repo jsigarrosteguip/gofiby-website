@@ -86,7 +86,7 @@ async def create_contact(contact: ContactLeadCreate):
         supabase_response = await supabase_service.create_contact_lead(lead_data)
         
         # 2. Enviar email a la empresa
-        logger.info(f"Sending notification email")
+        logger.info("Sending notification email")
         try:
             await email_service.send_contact_notification(lead_data)
         except Exception as e:
@@ -94,7 +94,7 @@ async def create_contact(contact: ContactLeadCreate):
             # No fallar si el email falla
         
         # 3. Enviar auto-respuesta al cliente
-        logger.info(f"Sending auto-response to client")
+        logger.info("Sending auto-response to client")
         try:
             await email_service.send_auto_response(lead_data)
         except Exception as e:
