@@ -42,7 +42,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('plans')}
                   className="text-gray-400 hover:text-[#fd2d4f] transition-colors"
                 >
-                  Planes
+                  Paquetes de Internet
                 </button>
               </li>
               <li>
@@ -95,8 +95,22 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social & Coverage */}
+          {/* Legal & Social */}
           <div>
+            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2 mb-6">
+              <li>
+                <a href="/privacidad" className="text-gray-400 hover:text-[#fd2d4f] transition-colors">
+                  Políticas de Privacidad
+                </a>
+              </li>
+              <li>
+                <a href="/libro-reclamaciones" className="text-gray-400 hover:text-[#fd2d4f] transition-colors">
+                  Libro de Reclamaciones
+                </a>
+              </li>
+            </ul>
+            
             <h3 className="text-lg font-semibold mb-4">Síguenos</h3>
             <div className="flex space-x-4 mb-6">
               <a
@@ -114,6 +128,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
+            
             <div className="bg-gray-800 p-4 rounded-lg">
               <h4 className="font-semibold text-sm mb-2">Cobertura</h4>
               <p className="text-gray-400 text-sm">
@@ -127,18 +142,13 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
               &copy; {currentYear} Gofiby. Todos los derechos reservados.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Términos y Condiciones
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Política de Privacidad
-              </a>
-            </div>
+            <p className="text-gray-400 text-sm">
+              Página desarrollada por <span className="text-[#fd2d4f] font-semibold">Jean Carlo Sigarrostegui</span>
+            </p>
           </div>
         </div>
       </div>
