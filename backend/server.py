@@ -120,19 +120,11 @@ async def chat(message: ChatMessage):
     Endpoint para chatbot IA conversacional
     """
     try:
-        # Obtener historial de chat si existe
-        chat_history = []
-        if message.session_id:
-            try:
-                chat_history = await supabase_service.get_chat_history(message.session_id)
-            except Exception:
-                pass
-        
         # Obtener respuesta del bot
         logger.info(f"Getting bot response for session: {message.session_id}")
         bot_response = await chatbot_service.get_response(
             user_message=message.message,
-            chat_history=chat_history
+            session_id=message.session_id
         )
         
         # Guardar conversación en Supabase
