@@ -10,7 +10,9 @@ class ChatbotService:
     def __init__(self):
         self.llm_key = os.environ.get('EMERGENT_LLM_KEY')
         if not self.llm_key:
-            raise ValueError("Emergent LLM Key not found")
+            logger.warning("Emergent LLM Key not found")
+            self.llm = None
+            return
         
         self.llm = LLM(api_key=self.llm_key)
         
