@@ -32,7 +32,7 @@ const IPTV = () => {
             <span className="bg-gradient-to-r from-[#fdab2b] via-[#fd2d4f] to-[#f80d76] bg-clip-text text-transparent"> IPTV</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Televisión sobre internet con contenido HD en todos tus dispositivos
+            IPTV con contenido HD en todos tus dispositivos
           </p>
         </div>
 
