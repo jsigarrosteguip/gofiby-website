@@ -1,8 +1,7 @@
 import os
-from emergentintegrations import LLM
+from emergentintegrations.llm.chat import LlmChat, UserMessage
 from typing import Dict, List
 import logging
-import json
 
 logger = logging.getLogger(__name__)
 
@@ -14,10 +13,8 @@ class ChatbotService:
             self.llm = None
             return
         
-        self.llm = LLM(api_key=self.llm_key)
-        
         # Contexto del chatbot sobre Gofiby
-        self.system_context = """
+        self.system_message = """
 Eres un asistente virtual amigable de Gofiby, una empresa de internet por fibra óptica en Lima, Perú.
 
 INFORMACIÓN DE GOFIBY:
@@ -72,38 +69,27 @@ TU ROL:
         
         logger.info("Chatbot service initialized with Emergent LLM")
     
-    async def get_response(self, user_message: str, chat_history: List[Dict] = None) -> str:
+    async def get_response(self, user_message: str, session_id: str = "default", chat_history: List[Dict] = None) -> str:
         """Obtiene respuesta del chatbot"""
-        if not self.llm:
+        if not self.llm_key:
             return "Lo siento, el servicio de chatbot no está disponible en este momento. Por favor, contáctanos por WhatsApp al +51 942 117 296"
             
         try:
-            # Preparar mensajes para el LLM
-            messages = [
-                {"role": "system", "content": self.system_context}
-            ]
+            # Crear instancia de chat
+            chat = LlmChat(
+                api_key=self.llm_key,
+                session_id=session_id,
+                system_message=self.system_message
+            ).with_model("openai", "gpt-4o-mini")
             
-            # Agregar historial si existe
-            if chat_history:
-                for msg in chat_history[-5:]:  # Solo últimos 5 mensajes para contexto
-                    messages.append({"role": "user", "content": msg.get('user_message', '')})
-                    messages.append({"role": "assistant", "content": msg.get('bot_response', '')})
-            
-            # Agregar mensaje actual
-            messages.append({"role": "user", "content": user_message})
+            # Crear mensaje de usuario
+            message = UserMessage(text=user_message)
             
             # Obtener respuesta
-            response = self.llm.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=messages,
-                temperature=0.7,
-                max_tokens=500
-            )
+            response = await chat.send_message(message)
             
-            bot_response = response.choices[0].message.content
-            logger.info(f"Bot response generated for message: {user_message[:50]}...")
-            
-            return bot_response
+            logger.info(f"Bot response generated for session: {session_id}")
+            return response
             
         except Exception as e:
             logger.error(f"Error generating bot response: {str(e)}")
