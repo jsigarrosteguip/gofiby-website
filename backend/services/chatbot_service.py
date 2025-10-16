@@ -74,6 +74,9 @@ TU ROL:
     
     async def get_response(self, user_message: str, chat_history: List[Dict] = None) -> str:
         """Obtiene respuesta del chatbot"""
+        if not self.llm:
+            return "Lo siento, el servicio de chatbot no está disponible en este momento. Por favor, contáctanos por WhatsApp al +51 942 117 296"
+            
         try:
             # Preparar mensajes para el LLM
             messages = [
