@@ -1,0 +1,16 @@
+{
+  "short_name": "Gofiby",
+  "name": "Gofiby - Internet Fibra Óptica",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#fd2d4f",
+  "background_color": "#ffffff",
+  "description": "Internet fibra óptica en Lima con TV Cable incluida"
+}
