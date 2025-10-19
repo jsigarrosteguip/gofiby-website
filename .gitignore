@@ -20,4 +20,7 @@ Thumbs.db
 
 # Keep build for deployment
 # /build
-# /dist 
+# /dist -e 
+# Environment files
+*.env
+*.env.*
