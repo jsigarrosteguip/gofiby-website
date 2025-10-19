@@ -1,7 +1,5 @@
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import resend
 from typing import Dict
 import logging
 
@@ -9,44 +7,18 @@ logger = logging.getLogger(__name__)
 
 class EmailService:
     def __init__(self):
-        self.gmail_user = os.environ.get('GMAIL_USER')
-        self.gmail_password = os.environ.get('GMAIL_APP_PASSWORD')
-        
-        if not self.gmail_user or not self.gmail_password:
-            logger.warning("Gmail credentials not found")
+        self.api_key = os.environ.get('RESEND_API_KEY')
+        if not self.api_key:
+            logger.warning("Resend API key not found")
             return
         
-        logger.info(f"Email service initialized with Gmail: {self.gmail_user}")
-    
-    def _send_email(self, to_email: str, subject: str, html_content: str) -> Dict:
-        """Envía un email usando Gmail SMTP"""
-        try:
-            msg = MIMEMultipart('alternative')
-            msg['From'] = f"Gofiby <{self.gmail_user}>"
-            msg['To'] = to_email
-            msg['Subject'] = subject
-            
-            html_part = MIMEText(html_content, 'html')
-            msg.attach(html_part)
-            
-            # Conectar a Gmail SMTP
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login(self.gmail_user, self.gmail_password)
-            server.send_message(msg)
-            server.quit()
-            
-            logger.info(f"Email sent successfully to {to_email}")
-            return {'success': True}
-            
-        except Exception as e:
-            logger.error(f"Error sending email to {to_email}: {str(e)}")
-            raise
+        resend.api_key = self.api_key
+        logger.info("Email service initialized with Resend")
     
     async def send_contact_notification(self, lead_data: Dict) -> Dict:
         """Envía notificación de nuevo contacto a la empresa"""
         try:
-            email_to = os.environ.get('EMAIL_TO', self.gmail_user)
+            email_to = os.environ.get('EMAIL_TO', 'gofibyinternet@gmail.com')
             
             html_content = f"""
             <!DOCTYPE html>
@@ -104,14 +76,19 @@ class EmailService:
             </html>
             """
             
-            return self._send_email(
-                to_email=email_to,
-                subject=f"🎉 Nuevo Lead: {lead_data.get('name')} - Gofiby",
-                html_content=html_content
-            )
+            params = {
+                "from": "Gofiby Website <onboarding@resend.dev>",
+                "to": [email_to],
+                "subject": f"🎉 Nuevo Lead: {lead_data.get('name')} - Gofiby",
+                "html": html_content
+            }
+            
+            response = resend.Emails.send(params)
+            logger.info(f"Email sent successfully to {email_to}")
+            return {'success': True, 'email_id': response.get('id')}
             
         except Exception as e:
-            logger.error(f"Error sending notification email: {str(e)}")
+            logger.error(f"Error sending email: {str(e)}")
             raise
     
     async def send_auto_response(self, lead_data: Dict) -> Dict:
@@ -145,7 +122,7 @@ class EmailService:
                         <p>Puedes contactarnos directamente por:</p>
                         <ul>
                             <li>📱 WhatsApp: <a href="https://wa.me/51942117296">+51 942 117 296</a></li>
-                            <li>📧 Email: contacto.gofiby@gmail.com</li>
+                            <li>📧 Email: gofibyinternet@gmail.com</li>
                         </ul>
                         
                         <div style="text-align: center;">
@@ -165,11 +142,16 @@ class EmailService:
             </html>
             """
             
-            return self._send_email(
-                to_email=lead_data.get('email'),
-                subject="Gracias por contactar a Gofiby - Te responderemos pronto",
-                html_content=html_content
-            )
+            params = {
+                "from": "Gofiby <onboarding@resend.dev>",
+                "to": [lead_data.get('email')],
+                "subject": "Gracias por contactar a Gofiby - Te responderemos pronto",
+                "html": html_content
+            }
+            
+            response = resend.Emails.send(params)
+            logger.info(f"Auto-response sent to {lead_data.get('email')}")
+            return {'success': True, 'email_id': response.get('id')}
             
         except Exception as e:
             logger.error(f"Error sending auto-response: {str(e)}")
